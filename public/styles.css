@@ -1,0 +1,169 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #10233a;
+  background: #f4f7fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+  padding: 1rem;
+}
+
+#join-panel {
+  max-width: 500px;
+  margin: 3rem auto;
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  padding: 0.45rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: #1e66f5;
+  color: white;
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  color: #b91c1c;
+  min-height: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#teacher-controls {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.upload-label {
+  background: #eef5ff;
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+}
+
+.side ul {
+  padding-left: 1rem;
+}
+
+#videos {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.video-row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+video {
+  width: 110px;
+  height: 70px;
+  background: #0f172a;
+  border-radius: 6px;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tab {
+  background: #e2e8f0;
+  color: #10233a;
+}
+
+.tab.active {
+  background: #1e66f5;
+  color: #fff;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.board-wrap {
+  width: 100%;
+  height: 580px;
+  position: relative;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#pdf-frame,
+#pdf-canvas,
+#whiteboard-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+#pdf-frame {
+  border: 0;
+  background: #fff;
+}
+
+#pdf-canvas,
+#whiteboard-canvas {
+  z-index: 2;
+}
+
+.whiteboard-wrap {
+  background: white;
+}
