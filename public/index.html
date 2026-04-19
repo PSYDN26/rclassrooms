@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Live Classroom</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section id="join-panel" class="card">
+        <h1>Live PDF Collaboration Classroom</h1>
+        <p>Roles: Teacher (controls tools), Student (annotates if allowed), Admin (view-only).</p>
+        <label>
+          Name
+          <input id="name-input" placeholder="Your name" />
+        </label>
+        <label>
+          Role
+          <select id="role-input">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <button id="join-btn">Join Classroom</button>
+        <p id="join-error" class="error"></p>
+      </section>
+
+      <section id="app" class="hidden">
+        <header class="topbar card">
+          <div>
+            <strong id="whoami"></strong>
+            <p id="permission-status"></p>
+          </div>
+          <div id="teacher-controls" class="hidden">
+            <label><input type="checkbox" id="toggle-annotation" /> Allow student PDF annotation</label>
+            <label><input type="checkbox" id="toggle-whiteboard" /> Allow student whiteboard draw</label>
+            <label class="upload-label">Upload PDF<input type="file" id="pdf-upload" accept="application/pdf" /></label>
+          </div>
+        </header>
+
+        <section class="layout">
+          <aside class="card side">
+            <h3>Participants</h3>
+            <ul id="users"></ul>
+            <h3>Live A/V</h3>
+            <p>Teacher + Students: camera + mic</p>
+            <p>Admin: spectator only</p>
+            <div id="videos"></div>
+          </aside>
+
+          <section class="content card">
+            <div class="tabs">
+              <button data-tab="pdf" class="tab active">PDF + Annotation</button>
+              <button data-tab="whiteboard" class="tab">Whiteboard</button>
+            </div>
+
+            <div id="pdf" class="tab-panel active">
+              <div class="board-wrap">
+                <iframe id="pdf-frame" title="PDF"></iframe>
+                <canvas id="pdf-canvas"></canvas>
+              </div>
+              <button id="clear-pdf" class="teacher-only hidden">Clear PDF Annotation</button>
+            </div>
+
+            <div id="whiteboard" class="tab-panel">
+              <div class="board-wrap whiteboard-wrap">
+                <canvas id="whiteboard-canvas"></canvas>
+              </div>
+              <button id="clear-whiteboard" class="teacher-only hidden">Clear Whiteboard</button>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
